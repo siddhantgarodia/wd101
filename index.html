@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body style="display: flex; justify-content: center; height: 100vh; align-items: center; flex-direction: column;">
+    <div>
+        <form id="registration-form" style="margin-bottom: auto; width: 100%;">
+            <h3 id="Heading">Registration Form</h3>
+
+            <label for="name" style="display: block; padding: 10px 10px;">Name
+                <input type="text" name="name" id="name" required style="display: block; width: 100%;">
+            </label>
+
+            <label for="email" style="display: block; padding: 10px 10px;">Email
+                <input type="email" name="email" id="email" required style="display: block; width: 100%;">
+            </label>
+
+            <label for="password" style="display: block; padding: 10px 10px;">Password
+                <input type="password" name="password" id="password" required style="display: block; width: 100%;">
+            </label>
+
+            <label for="dob" style="display: block; padding: 10px 10px;">Date of Birth
+                <input type="date" name="dob" id="dob" required style="display: block; width: 100%;">
+            </label>
+
+            <label for="acceptTerms" style="display: block; padding: 10px 10px;">
+                <input type="checkbox" name="acceptTerms" id="acceptTerms" required>
+                Accept Terms and Conditions
+            </label>
+
+            <button type="submit"
+                style="padding: 10px; background-color: rgb(16, 238, 16); border-radius: 5px;">Submit</button>
+        </form>
+    </div>
+
+    <br>
+
+    <div>
+        <h2 style="display: flex;justify-content: center;">Entries</h2>
+        <div id="user-entries"></div>
+    </div>
+
+    <script>
+        const currentDate = new Date();
+        const minDate = new Date(currentDate.getFullYear() - 55, currentDate.getMonth(), currentDate.getDate());
+        const maxDate = new Date(currentDate.getFullYear() - 18, currentDate.getMonth(), currentDate.getDate());
+
+        const setMinDate = minDate.toISOString().split('T')[0];
+        const setMaxDate = maxDate.toISOString().split('T')[0];
+
+        document.getElementById('dob').setAttribute('min', setMinDate);
+        document.getElementById('dob').setAttribute('max', setMaxDate);
+    </script>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
